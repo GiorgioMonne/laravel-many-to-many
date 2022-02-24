@@ -157,6 +157,10 @@ class PostController extends Controller
 
         $post->save();
 
+        if(isset($data["tags"])){
+            $post->tags()->sync($data['tags']);
+        }
+
         return redirect()->route("posts.show", $post->id);
     }
 

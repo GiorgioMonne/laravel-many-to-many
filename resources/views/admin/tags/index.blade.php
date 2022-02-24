@@ -10,9 +10,9 @@
 
                 
 
-                <div class="card-body">
+                <div class="card-body mb-3">
 
-                    <a href="{{route("categories.create")}}"><button type="button" class="btn btn-success">Aggiungi Categoria</button></a>
+                    <a href="{{route("tags.create")}}"><button type="button" class="btn btn-success mb-3">Aggiungi Categoria</button></a>
 
                     <table class="table">
                         <thead>
@@ -24,21 +24,21 @@
                         </thead>
                         <tbody> 
                             
-                            @foreach ($categories as $category)
+                            @foreach ($tags as $tag)
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->name}}</td>
-                                    <td>{{$category->slug}}</td>
+                                    <td>{{$tag->id}}</td>
+                                    <td>{{$tag->name}}</td>
+                                    <td>{{$tag->slug}}</td>
                                     
                                     <td>
-                                        <a href="{{route("categories.show", $category->id)}}"><button type="button" class="btn btn-info">Visualizza</button></a>
+                                        <a href="{{route("tags.show", $tag->id)}}"><button type="button" class="btn btn-info">Visualizza</button></a>
                                     </td>
                                     <td>
-                                        <a href="{{route("categories.edit", $category->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a>
+                                        <a href="{{route("tags.edit", $tag->id)}}"><button type="button" class="btn btn-warning">Modifica</button></a>
                                     </td>
 
                                     <td>
-                                        <form action="{{route("categories.destroy", $category->id)}}" method="POST">
+                                        <form action="{{route("tags.destroy", $tag->id)}}" method="POST">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="btn btn-danger">Elimina</button>
